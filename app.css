@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    background-color: #000;
+
+}
+
+#container {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+}
+
+#bord {
+    background-color: #F19953;
+    border: white 5px;
+    width: 500px;
+    height: 500px;
+
+
+}
+
+#apply {
+    background-color: #EAC4D5;
+    border: white 5px;
+    width: 250px;
+    height: 180px;
+    display: flex;
+    margin-left: 50px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+img {
+    width: 40px;
+    height: 30px;
+    margin-top: 40px;
+
+
+
+
+}
+
+img:hover {
+    width: 60px;
+    height: 50px;
+    margin-top: 20px;
+}

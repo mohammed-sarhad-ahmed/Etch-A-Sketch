@@ -69,8 +69,8 @@ formnumber.addEventListener("submit", (e) => {
         else {
             const abord = document.createElement("div")
             const factor = input.value / 16
-            abord.style.width = `${25 / factor}px`
-            abord.style.height = `${25 / factor}px`
+            abord.style.width = `${50 / factor}px`
+            abord.style.height = `${50 / factor}px`
             bord.append(abord)
 
         }

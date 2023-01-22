@@ -2,13 +2,26 @@ const contain = document.querySelector("#container")
 const reset = document.querySelector("img")
 const bord = document.querySelector("#bord")
 const rainbow = document.querySelector("button:nth-of-type(2)")
+const eraser = document.querySelector("button:nth-of-type(3)")
 const apply = document.querySelector("input")
 const form = document.querySelector("form")
 const color = document.querySelector("button:nth-of-type(1)")
 const formRainbow = document.querySelector("form:nth-of-type(2)")
-const formnumber = document.querySelector("form:nth-of-type(3)")
+const formnumber = document.querySelector("form:nth-of-type(4)")
+const formaly = document.querySelector("form:nth-of-type(3)")
 const input = document.querySelector("#chose")
 
+formaly.addEventListener("submit", (e) => {
+    e.preventDefault()
+    bord.addEventListener("mouseover", (e) => {
+        if (e.target !== bord) {
+            const Item = e.target
+            Item.style.backgroundColor = "white"
+        }
+
+    })
+
+})
 
 function clear(child) {
     for (let i = 0; i < child; i++) {
@@ -41,7 +54,7 @@ formRainbow.addEventListener("submit", (e) => {
 
     })
 
-})
+}, false)
 
 
 

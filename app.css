@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background-color: #000;
@@ -6,39 +10,39 @@ body {
 
 #container {
     display: flex;
-    gap: 80px;
+    gap: 20px;
     justify-content: center;
 }
 
 #bord {
-    background-color: #F19953;
-    border: white 5px;
-    width: 500px;
-    height: 500px;
-
+    flex-wrap: wrap;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
 
 }
 
 #apply {
     background-color: #EAC4D5;
     border: white 5px;
-    width: 250px;
-    height: 180px;
+    width: 350px;
+    height: 280px;
     display: flex;
     margin-left: 50px;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 30px;
+
 
 }
 
 img {
     width: 40px;
     height: 30px;
-    margin-top: 40px;
-
-
 
 
 }
@@ -46,5 +50,37 @@ img {
 img:hover {
     width: 60px;
     height: 50px;
-    margin-top: 20px;
+    margin-top: -20px;
+}
+
+.item {
+    height: 25px;
+    width: 25px;
+    flex: 1 1 auto;
+}
+
+.items {
+    width: 100%;
+    height: 0px;
+    border: 0px;
+
+}
+
+
+.item2x {
+    height: 12.5px;
+    width: 12.5px;
+    flex: 1 1 auto;
+}
+
+.item3x {
+    height: 8.33333333px;
+    width: 8.333333333px;
+    flex: 1 1 auto;
+}
+
+.item4x {
+    height: 6.25px;
+    width: 6.25px;
+    flex: 1 1 auto;
 }

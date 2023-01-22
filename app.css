@@ -65,22 +65,3 @@ img:hover {
     border: 0px;
 
 }
-
-
-.item2x {
-    height: 12.5px;
-    width: 12.5px;
-    flex: 1 1 auto;
-}
-
-.item3x {
-    height: 8.33333333px;
-    width: 8.333333333px;
-    flex: 1 1 auto;
-}
-
-.item4x {
-    height: 6.25px;
-    width: 6.25px;
-    flex: 1 1 auto;
-}

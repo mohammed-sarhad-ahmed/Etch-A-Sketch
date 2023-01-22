@@ -68,27 +68,12 @@ formnumber.addEventListener("submit", (e) => {
         }
         else {
             const abord = document.createElement("div")
-            if (input.value == 16) {
-                abord.classList.add("item")
-
-            }
-            else if (input.value == 32) {
-                abord.classList.add("item2x")
-
-            }
-            else if (input.value == 48) {
-                abord.classList.add("item3x")
-
-            }
-            else if (input.value == 64) {
-                abord.classList.add("item4x")
-
-            }
+            const factor = input.value / 16
+            abord.style.width = `${25 / factor}px`
+            abord.style.height = `${25 / factor}px`
             bord.append(abord)
+
         }
-
-
-
     }
 })
 

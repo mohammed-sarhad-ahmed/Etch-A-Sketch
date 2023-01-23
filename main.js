@@ -27,11 +27,10 @@ for (let i = 1; i < (value * value) + value; i++) {
         abord.style.width = `${50 / factor}px`
         abord.style.height = `${50 / factor}px`
         bord.append(abord)
-        toggle.addEventListener("submit", (e) => {
+        toggle.addEventListener("click", (e) => {
             e.preventDefault()
-            abord.classList.toggle("toggle")
+            abord.style.border = `${5 / factor}px  wheat solid`
         })
-
     }
 
 }
@@ -107,9 +106,9 @@ input.addEventListener("input", (e) => {
             abord.style.height = `${50 / factor}px`
             h2.innerText = `${input.value}*${input.value}`
             bord.append(abord)
-            toggle.addEventListener("submit", (e) => {
+            toggle.addEventListener("click", (e) => {
                 e.preventDefault()
-                abord.classList.toggle("toggle")
+                abord.style.border = `${3 / factor}px  wheat solid`
             })
 
         }

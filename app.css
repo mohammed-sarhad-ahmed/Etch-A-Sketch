@@ -35,9 +35,18 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 
 
+}
+
+.size {
+
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    width: fit-content;
+    height: 75px;
 }
 
 .toggle {

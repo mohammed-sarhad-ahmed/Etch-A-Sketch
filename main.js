@@ -7,11 +7,34 @@ const apply = document.querySelector("input")
 const form = document.querySelector("form")
 const color = document.querySelector("button:nth-of-type(1)")
 const formRainbow = document.querySelector("form:nth-of-type(2)")
-const formnumber = document.querySelector("form:nth-of-type(4)")
 const formaly = document.querySelector("form:nth-of-type(3)")
 const input = document.querySelector("#chose")
 const toggle = document.querySelector("#Toggle")
-const steal = document.querySelector("#steal")
+let h2 = document.querySelector("h2")
+
+const value = Number(input.value)
+let mod = value + 1
+for (let i = 1; i < (value * value) + value; i++) {
+
+    if (i % mod === 0) {
+        const abord = document.createElement("div")
+        abord.classList.add("items")
+        bord.append(abord)
+    }
+    else {
+        const abord = document.createElement("div")
+        const factor = input.value / 16
+        abord.style.width = `${50 / factor}px`
+        abord.style.height = `${50 / factor}px`
+        bord.append(abord)
+        toggle.addEventListener("submit", (e) => {
+            e.preventDefault()
+            abord.classList.toggle("toggle")
+        })
+
+    }
+
+}
 
 formaly.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -24,20 +47,7 @@ formaly.addEventListener("submit", (e) => {
     })
 
 })
-steal.addEventListener("submit", (e) => {
-    e.preventDefault()
-    bord.addEventListener("mouseover", (e) => {
-        if (e.target !== bord) {
-            console.dir(e.target.style.backgroundColor)
-            apply.value = e.target.style.backgroundColor
-        }
 
-
-    })
-
-
-
-})
 function clear(child) {
     for (let i = 0; i < child; i++) {
         bord.removeChild(bord.firstChild)
@@ -79,8 +89,7 @@ formRainbow.addEventListener("submit", (e) => {
 reset.addEventListener("click", () => {
     window.location.reload()
 })
-formnumber.addEventListener("submit", (e) => {
-    e.preventDefault()
+input.addEventListener("input", (e) => {
     clear(bord.childElementCount)
     const value = Number(input.value)
     let mod = value + 1
@@ -96,6 +105,7 @@ formnumber.addEventListener("submit", (e) => {
             const factor = input.value / 16
             abord.style.width = `${50 / factor}px`
             abord.style.height = `${50 / factor}px`
+            h2.innerText = `${input.value}*${input.value}`
             bord.append(abord)
             toggle.addEventListener("submit", (e) => {
                 e.preventDefault()

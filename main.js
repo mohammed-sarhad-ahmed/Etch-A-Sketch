@@ -10,6 +10,8 @@ const formRainbow = document.querySelector("form:nth-of-type(2)")
 const formnumber = document.querySelector("form:nth-of-type(4)")
 const formaly = document.querySelector("form:nth-of-type(3)")
 const input = document.querySelector("#chose")
+const toggle = document.querySelector("#Toggle")
+const steal = document.querySelector("#steal")
 
 formaly.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -22,7 +24,20 @@ formaly.addEventListener("submit", (e) => {
     })
 
 })
+steal.addEventListener("submit", (e) => {
+    e.preventDefault()
+    bord.addEventListener("mouseover", (e) => {
+        if (e.target !== bord) {
+            console.dir(e.target.style.backgroundColor)
+            apply.value = e.target.style.backgroundColor
+        }
 
+
+    })
+
+
+
+})
 function clear(child) {
     for (let i = 0; i < child; i++) {
         bord.removeChild(bord.firstChild)
@@ -39,6 +54,7 @@ form.addEventListener("submit", (e) => {
             const Item = e.target
             Item.style.backgroundColor = app
         }
+
 
     })
 
@@ -72,11 +88,7 @@ formnumber.addEventListener("submit", (e) => {
 
         if (i % mod === 0) {
             const abord = document.createElement("div")
-
-
-
             abord.classList.add("items")
-
             bord.append(abord)
         }
         else {
@@ -85,9 +97,15 @@ formnumber.addEventListener("submit", (e) => {
             abord.style.width = `${50 / factor}px`
             abord.style.height = `${50 / factor}px`
             bord.append(abord)
+            toggle.addEventListener("submit", (e) => {
+                e.preventDefault()
+                abord.classList.toggle("toggle")
+            })
 
         }
+
     }
+
 })
 
 
@@ -98,6 +116,7 @@ function generateRainbow() {
     let b = Math.floor(Math.random() * 256)
     let rgb = `rgb(${r},${g},${b})`
     return rgb
+
 
 }
 

@@ -150,7 +150,7 @@ formaly.addEventListener("submit", (e) => {
     bord.addEventListener("mouseover", (e) => {
         if (e.target !== bord) {
             const Item = e.target
-            Item.style.backgroundColor = "white"
+            Item.style.backgroundColor = bord.style.background
         }
 
     })
@@ -172,7 +172,7 @@ backgroundform.addEventListener("submit", (e) => {
     bord.style.background = background.value
 })
 function border(abord, counter, value, mod, num) {
-   
+
     for (let i = 0; i < counter; i++) {
         if (!(abord[i].classList.contains("items"))) {
             if (count % 2 === 0) {

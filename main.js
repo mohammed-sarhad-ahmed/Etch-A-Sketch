@@ -19,35 +19,35 @@ let count = 0
 
 function defult() {
     const value = Number(input.value)
+    const num = input.value / 16
     let mod = value + 1
+
     for (let i = 1; i < (value * value) + value; i++) {
+        const abord = document.createElement("div")
 
         if (i % mod === 0) {
-            const abord = document.createElement("div")
             abord.classList.add("items")
             bord.append(abord)
         }
         else {
-            const abord = document.createElement("div")
             const factor = input.value / 16
-            abord.style.width = `${50 / factor}px`
-            abord.style.height = `${50 / factor}px`
+            abord.style.width = `${25 / factor}px`
+            abord.style.height = `${25 / factor}px`
+            h2.innerText = `${input.value}*${input.value}`
             bord.append(abord)
-
-
-
-
-
         }
 
     }
 
+
+
     toggle.addEventListener("click", (e) => {
         count++
-        getitem(bord.children, bord.childElementCount, value, mod)
+        getitem(bord.children, bord.childElementCount, value, mod, num)
     })
-    border(bord.children, bord.childElementCount, value, mod)
-    console.log(count)
+    border(bord.children, bord.childElementCount, value, mod, num)
+
+
 
 }
 
@@ -88,6 +88,7 @@ input.addEventListener("input", (e) => {
     console.log(count)
     clear(bord.childElementCount)
     const value = Number(input.value)
+    const num = input.value / 16
     let mod = value + 1
     for (let i = 1; i < (value * value) + value; i++) {
         const abord = document.createElement("div")
@@ -98,12 +99,12 @@ input.addEventListener("input", (e) => {
         }
         else {
 
+
             const factor = input.value / 16
-            abord.style.width = `${50 / factor}px`
-            abord.style.height = `${50 / factor}px`
+            abord.style.width = `${25 / factor}px`
+            abord.style.height = `${25 / factor}px`
             h2.innerText = `${input.value}*${input.value}`
             bord.append(abord)
-
 
         }
 
@@ -113,12 +114,12 @@ input.addEventListener("input", (e) => {
     }
     function get() {
         count++
-        getitem(bord.children, bord.childElementCount, value, mod)
+        getitem(bord.children, bord.childElementCount, value, mod, num)
     }
 
     toggle.addEventListener("click", get)
     toggle.removeEventListener("click", get)
-    border(bord.children, bord.childElementCount, value, mod)
+    border(bord.children, bord.childElementCount, value, mod, num)
 
 
 })
@@ -170,33 +171,38 @@ backgroundform.addEventListener("submit", (e) => {
     e.preventDefault()
     bord.style.background = background.value
 })
-function border(abord, counter, value, mod) {
+function border(abord, counter, value, mod, num) {
+   
     for (let i = 0; i < counter; i++) {
+        if (!(abord[i].classList.contains("items"))) {
+            if (count % 2 === 0) {
 
-
-        if (mod !== 0) {
-            if (count % 2 === 0) { abord[i].style.border = `${5 / value}px solid wheat` }
-           
+                abord[i].style.border = `${1 / num}px solid wheat`
+            }
+            else {
+                abord[i].style.border = `0px`
+            }
         }
+
     }
 }
 
 
 
 
-
-function getitem(abord, counter, value, mod) {
-    console.log(count)
-
+function getitem(abord, counter, value, mod, num) {
     for (let i = 0; i < counter; i++) {
-        if (mod !== 0) {
-            if (count % 2 === 0) { abord[i].style.border = `${5 / value}px solid wheat` }
-            else {
-                abord[i].style.border = null
+        if (!(abord[i].classList.contains("items"))) {
+            if (count % 2 === 0) {
+
+                abord[i].style.border = `${1 / num}px solid wheat`
             }
-
+            else {
+                abord[i].style.border = `0px`
+            }
         }
-    }
 
+
+    }
 
 }

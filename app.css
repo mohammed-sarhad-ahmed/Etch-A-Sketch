@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    background-color: #000;
+    background-color: blueviolet;
 
 }
 
@@ -27,8 +27,8 @@ body {
 #apply {
     background-color: #EAC4D5;
     border: white 5px;
-    width: 450px;
-    height: 380px;
+    width: 550px;
+    height: 480px;
     display: flex;
     margin-left: 50px;
     border-radius: 50%;
@@ -67,4 +67,18 @@ img:hover {
     height: 0px;
     border: 0px;
 
+}
+
+#color_palet {
+    border-radius: 50%;
+    border: navy;
+    background-color: blue;
+
+}
+
+button {
+    color: rgb(21, 21, 164);
+    border-radius: 30%;
+    background-color: aqua;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

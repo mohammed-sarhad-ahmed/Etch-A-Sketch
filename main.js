@@ -1,4 +1,3 @@
-const contain = document.querySelector("#container")
 const reset = document.querySelector("img")
 const bord = document.querySelector("#bord")
 const rainbow = document.querySelector("button:nth-of-type(2)")
@@ -11,47 +10,50 @@ const formaly = document.querySelector("form:nth-of-type(3)")
 const input = document.querySelector("#chose")
 const toggle = document.querySelector("#Toggle")
 let h2 = document.querySelector("h2")
+const background = document.querySelector("#background")
+const backgroundform = document.querySelector("#based")
+let count = 0
 
-const value = Number(input.value)
-let mod = value + 1
-for (let i = 1; i < (value * value) + value; i++) {
 
-    if (i % mod === 0) {
-        const abord = document.createElement("div")
-        abord.classList.add("items")
-        bord.append(abord)
-    }
-    else {
-        const abord = document.createElement("div")
-        const factor = input.value / 16
-        abord.style.width = `${50 / factor}px`
-        abord.style.height = `${50 / factor}px`
-        bord.append(abord)
-        toggle.addEventListener("click", (e) => {
-            e.preventDefault()
-            abord.style.border = `${5 / factor}px  wheat solid`
-        })
-    }
 
-}
 
-formaly.addEventListener("submit", (e) => {
-    e.preventDefault()
-    bord.addEventListener("mouseover", (e) => {
-        if (e.target !== bord) {
-            const Item = e.target
-            Item.style.backgroundColor = "white"
+function defult() {
+    const value = Number(input.value)
+    let mod = value + 1
+    for (let i = 1; i < (value * value) + value; i++) {
+
+        if (i % mod === 0) {
+            const abord = document.createElement("div")
+            abord.classList.add("items")
+            bord.append(abord)
+        }
+        else {
+            const abord = document.createElement("div")
+            const factor = input.value / 16
+            abord.style.width = `${50 / factor}px`
+            abord.style.height = `${50 / factor}px`
+            bord.append(abord)
+
+
+
+
+
         }
 
-    })
-
-})
-
-function clear(child) {
-    for (let i = 0; i < child; i++) {
-        bord.removeChild(bord.firstChild)
     }
+
+    toggle.addEventListener("click", (e) => {
+        count++
+        getitem(bord.children, bord.childElementCount, value, mod)
+    })
+    border(bord.children, bord.childElementCount, value, mod)
+    console.log(count)
+
 }
+
+defult()
+
+
 
 
 
@@ -82,42 +84,49 @@ formRainbow.addEventListener("submit", (e) => {
 }, false)
 
 
-
-
-
-reset.addEventListener("click", () => {
-    window.location.reload()
-})
 input.addEventListener("input", (e) => {
+    console.log(count)
     clear(bord.childElementCount)
     const value = Number(input.value)
     let mod = value + 1
     for (let i = 1; i < (value * value) + value; i++) {
+        const abord = document.createElement("div")
 
         if (i % mod === 0) {
-            const abord = document.createElement("div")
             abord.classList.add("items")
             bord.append(abord)
         }
         else {
-            const abord = document.createElement("div")
+
             const factor = input.value / 16
             abord.style.width = `${50 / factor}px`
             abord.style.height = `${50 / factor}px`
             h2.innerText = `${input.value}*${input.value}`
             bord.append(abord)
-            toggle.addEventListener("click", (e) => {
-                e.preventDefault()
-                abord.style.border = `${3 / factor}px  wheat solid`
-            })
+
 
         }
 
+
+
+
     }
+    function get() {
+        count++
+        getitem(bord.children, bord.childElementCount, value, mod)
+    }
+
+    toggle.addEventListener("click", get)
+    toggle.removeEventListener("click", get)
+    border(bord.children, bord.childElementCount, value, mod)
+
 
 })
 
 
+
+
+//generate a color on the rgb spectrum
 function generateRainbow() {
 
     let r = Math.floor(Math.random() * 256)
@@ -128,5 +137,66 @@ function generateRainbow() {
 
 
 }
+//clear function 
+function clear(child) {
+    for (let i = 0; i < child; i++) {
+        bord.removeChild(bord.firstChild)
+    }
+}
+//eraser
+formaly.addEventListener("submit", (e) => {
+    e.preventDefault()
+    bord.addEventListener("mouseover", (e) => {
+        if (e.target !== bord) {
+            const Item = e.target
+            Item.style.backgroundColor = "white"
+        }
+
+    })
+
+})
+
+//reset
+reset.addEventListener("click", () => {
+    window.location.reload()
+})
+
+setInterval(() => {
+    document.querySelector("body").style.backgroundColor = generateRainbow()
+}, 5000)
+
+//background color
+backgroundform.addEventListener("submit", (e) => {
+    e.preventDefault()
+    bord.style.background = background.value
+})
+function border(abord, counter, value, mod) {
+    for (let i = 0; i < counter; i++) {
 
 
+        if (mod !== 0) {
+            if (count % 2 === 0) { abord[i].style.border = `${5 / value}px solid wheat` }
+           
+        }
+    }
+}
+
+
+
+
+
+function getitem(abord, counter, value, mod) {
+    console.log(count)
+
+    for (let i = 0; i < counter; i++) {
+        if (mod !== 0) {
+            if (count % 2 === 0) { abord[i].style.border = `${5 / value}px solid wheat` }
+            else {
+                abord[i].style.border = null
+            }
+
+        }
+    }
+
+
+}
